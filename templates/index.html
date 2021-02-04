@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    <title> Todo List Home </title>
+{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+        <h1>Todo List</h1>    
+        <form action="" method="POST"> <!-- when you add get request that sends the value of the field to the urls args-->
+            <!-- I fyou use the post method then it can send them but not to the url -->
+            <input type="text" name="todo_name" placeholder="Add a todo">
+            <button>OK</button>
+        </form>
+
+        <ul>
+            {% for todo in todos %}  
+                <li class="default {{'done' if todo.status==0 else ''}} ">
+                   {{ todo.name }}    
+                   <input type='checkbox'>
+                </li>               
+            {% endfor %}
+        </ul>
+        {% endblock %}
+
+    </div>
+    
+    
+    
